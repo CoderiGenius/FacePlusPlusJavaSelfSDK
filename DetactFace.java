@@ -27,7 +27,7 @@ public class DetactFace {
      * @param path
      * @return 检测结果的json
      */
-    private JSONObject Detact(String path){
+    public JSONObject Detact(String path){
 
 
         //获取照片base64

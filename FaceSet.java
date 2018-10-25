@@ -26,7 +26,7 @@ public class FaceSet {
      * @param outerID 账号下全局唯一的 FaceSet 自定义标识
      * @return 创建结果的json
      */
-    private JSONObject CreatFaceSet(String displayName, String outerID){
+    public JSONObject CreatFaceSet(String displayName, String outerID){
 
         //构建face++请求
         Map<String, String> createMap = new HashMap<String, String>();
@@ -52,7 +52,7 @@ public class FaceSet {
      * @param faceTokens 人脸标识
      * @return 返回json
      */
-    private JSONObject AddFaceToFaceSet(String facesetToken,String faceTokens){
+    public JSONObject AddFaceToFaceSet(String facesetToken,String faceTokens){
 
         //构建face++请求
         Map<String, String> createMap = new HashMap<String, String>();

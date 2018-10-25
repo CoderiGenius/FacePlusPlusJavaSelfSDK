@@ -27,7 +27,7 @@ public class SearchFace {
      * @param facesetToken
      * @return 搜索结果json
      */
-    private JSONObject SearchByBase64(String base64, String facesetToken) {
+    public JSONObject SearchByBase64(String base64, String facesetToken) {
 
 
         //构建face++请求
@@ -54,7 +54,7 @@ public class SearchFace {
      * @param facesetToken 人脸集合
      * @return 搜索结果
      */
-    private JSONObject SearchByFile(String path, String facesetToken) {
+    public JSONObject SearchByFile(String path, String facesetToken) {
 
         //获取照片base64
         String base64 = Image.getImageStr(path);
