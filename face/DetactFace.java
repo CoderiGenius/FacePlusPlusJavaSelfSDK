@@ -1,3 +1,5 @@
+package face;
+
 import base64.Image;
 import config.Config;
 import net.sf.json.JSONObject;
@@ -20,14 +22,14 @@ public class DetactFace {
     SimpleDateFormat df = new SimpleDateFormat("MM dd HH mm ss");
 
     //返回的json
-    JSONObject detactReturnJson = null;
+    com.alibaba.fastjson.JSONObject detactReturnJson = null;
 
     /**
      * 检测人脸方法
      * @param path
      * @return 检测结果的json
      */
-    public JSONObject Detact(String path){
+    public com.alibaba.fastjson.JSONObject Detact(String path){
 
 
         //获取照片base64
@@ -35,16 +37,16 @@ public class DetactFace {
        String base64 = Image.getImageStr(path);
         //构建face++请求
         Map<String, String> createMap = new HashMap<String, String>();
-        createMap.put("api_key", Config.api_key_test);
-        createMap.put("api_secret", Config.api_secret_test);
+        createMap.put("api_key", Config.api_key);
+        createMap.put("api_secret", Config.api_secret);
         createMap.put("image_base64", base64);
 
         try{
             //发送请求，并将返回结果存为jason对象
-            detactReturnJson = JSONObject.fromObject(http.HttpClientUtil.doPost(Config.detact_url, createMap, "UTF-8"));
+            detactReturnJson = com.alibaba.fastjson.JSONObject.parseObject(http.HttpClientUtil.doPost(Config.detact_url, createMap, "UTF-8"));
 
         }catch(Exception e){
-            Main.logger.severe("发送请求失败！错误信息："+e.getMessage());
+            Logger.logger.severe("发送请求失败！错误信息："+e.getMessage());
         }
         return detactReturnJson;
     }
